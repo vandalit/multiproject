@@ -30,30 +30,18 @@ Para ayudarte a desplegar tus tres proyectos en Firebase en un solo proyecto "mu
 1. **Instala Firebase CLI** (si aún no lo has hecho):
 
    ```
-   bash
-   
-   
-   Copy code
    npm install -g firebase-tools
    ```
 
 2. **Inicia sesión en Firebase**:
 
    ```
-   bash
-   
-   
-   Copy code
    firebase login
    ```
 
 3. **Inicializa el proyecto Firebase en el directorio raíz de MULTIPROJECT**: Desde la raíz de MULTIPROJECT, ejecuta:
 
    ```
-   bash
-   
-   
-   Copy code
    firebase init
    ```
 
@@ -70,7 +58,7 @@ Firebase te permite utilizar "targets" para desplegar múltiples sitios dentro d
 1. **Define los targets**: Ejecuta el siguiente comando para agregar un target para cada proyecto. Reemplaza `target-name` con nombres personalizados para cada subproyecto (por ejemplo, `mainProject`, `secondProject`, `thirdProject`).
 
    ```
-   bashCopy codefirebase target:apply hosting mainProject multiprojectfirebase-main
+   firebase target:apply hosting mainProject multiprojectfirebase-main
    firebase target:apply hosting secondProject multiprojectfirebase-second
    firebase target:apply hosting thirdProject multiprojectfirebase-third
    ```
@@ -82,7 +70,7 @@ Firebase te permite utilizar "targets" para desplegar múltiples sitios dentro d
 Edita el archivo `firebase.json` en la raíz de MULTIPROJECT para configurar múltiples "hosting sites" con los targets definidos.
 
 ```
-jsonCopy code{
+{
   "hosting": [
     {
       "target": "mainProject",
@@ -133,7 +121,7 @@ Para que Firebase sirva cada proyecto correctamente, es necesario que cada uno t
 1. En el archivo `vite.config.js` de cada subproyecto (`main-project`, `second-project`, `third-project`), asegúrate de que el `build` genere la salida en la carpeta `dist`.
 
    ```
-   javascriptCopy codeimport { defineConfig } from 'vite'
+   import { defineConfig } from 'vite'
    import vue from '@vitejs/plugin-vue'
    
    export default defineConfig({
@@ -147,7 +135,7 @@ Para que Firebase sirva cada proyecto correctamente, es necesario que cada uno t
 2. Luego, desde la raíz de cada subproyecto, ejecuta:
 
    ```
-   bashCopy codenpm install
+   npm install
    npm run build
    ```
 
@@ -158,7 +146,7 @@ Para que Firebase sirva cada proyecto correctamente, es necesario que cada uno t
 Una vez configurados los builds de cada proyecto y editado `firebase.json`, despliega cada proyecto en Firebase.
 
 ```
-bashCopy codefirebase deploy --only hosting:mainProject
+firebase deploy --only hosting:mainProject
 firebase deploy --only hosting:secondProject
 firebase deploy --only hosting:thirdProject
 ```
@@ -166,10 +154,6 @@ firebase deploy --only hosting:thirdProject
 Alternativamente, para desplegar todos los proyectos en una sola línea:
 
 ```
-bash
-
-
-Copy code
 firebase deploy --only hosting
 ```
 
@@ -209,7 +193,7 @@ Tu configuración de Vite es bastante estándar para un proyecto Vue y tiene alg
 Aquí te muestro cómo debería quedar tu configuración de `vite.config.js` para cada subproyecto:
 
 ```
-javascriptCopy codeimport { fileURLToPath, URL } from 'node:url'
+import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 
@@ -271,7 +255,7 @@ El error `404, Requested entity was not found` sugiere que Firebase no encuentra
 3. **Actualiza los Targets en Firebase CLI** (si es necesario): Una vez que hayas creado los sitios en la consola, vuelve a aplicar los targets para asegurar que están configurados correctamente. Desde el directorio raíz de tu proyecto `MULTIPROJECT`, ejecuta:
 
    ```
-   bashCopy codefirebase target:apply hosting mainProject multiprojectfirebase-main
+   firebase target:apply hosting mainProject multiprojectfirebase-main
    firebase target:apply hosting secondProject multiprojectfirebase-second
    firebase target:apply hosting thirdProject multiprojectfirebase-third
    ```
@@ -279,11 +263,11 @@ El error `404, Requested entity was not found` sugiere que Firebase no encuentra
 4. **Despliega de nuevo**: Ahora que los sitios deberían estar configurados correctamente en Firebase, intenta realizar el despliegue nuevamente:
 
    ```
-   bash
-   
-   
-   Copy code
    firebase deploy --only hosting
    ```
 
 Esto debería solucionar el error, ya que ahora Firebase puede encontrar cada uno de los sitios (`multiprojectfirebase-main`, `multiprojectfirebase-second`, `multiprojectfirebase-third`).
+
+<a href="https://multiprojectfirebase-main.web.app/">proyecto main</a> 
+<a href="https://multiprojectfirebase-second.web.app/">proyecto second</a>
+<a href="https://multiprojectfirebase-third.web.app/">proyecto third</a>
