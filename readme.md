@@ -292,46 +292,34 @@ Esto debería solucionar el error, ya que ahora Firebase puede encontrar cada un
 
 ## Cards de Servicios
 
-<div class="container">
-  <div class="row row-cols-1 row-cols-md-3 g-4">
-    <div class="col">
-      <a href="https://ejemplo1.com" class="text-decoration-none">
-        <div class="card h-100 bg-dark text-white rounded-4 shadow" onmouseover="this.style.backgroundColor='#ff7f50';" onmouseout="this.style.backgroundColor='#212529';">
-          <div class="card-body">
-            <div class="display-6 mb-3">🎨</div>
-            <h5 class="card-title">Diseño</h5>
-            <p class="card-text">Explora nuestros servicios de diseño creativos y personalizados para tu marca.</p>
-          </div>
-        </div>
-      </a>
-    </div>
-    <div class="col">
-      <a href="https://ejemplo2.com" class="text-decoration-none">
-        <div class="card h-100 bg-dark text-white rounded-4 shadow" onmouseover="this.style.backgroundColor='#ff7f50';" onmouseout="this.style.backgroundColor='#212529';">
-          <div class="card-body">
-            <div class="display-6 mb-3">💻</div>
-            <h5 class="card-title">Desarrollo</h5>
-            <p class="card-text">Soluciones web modernas y optimizadas para tu negocio digital.</p>
-          </div>
-        </div>
-      </a>
-    </div>
-    <div class="col">
-      <a href="https://ejemplo3.com" class="text-decoration-none">
-        <div class="card h-100 bg-dark text-white rounded-4 shadow" onmouseover="this.style.backgroundColor='#ff7f50';" onmouseout="this.style.backgroundColor='#212529';">
-          <div class="card-body">
-            <div class="display-6 mb-3">📱</div>
-            <h5 class="card-title">Mobile</h5>
-            <p class="card-text">Aplicaciones móviles nativas y multiplataforma de alta calidad.</p>
-          </div>
-        </div>
-      </a>
-    </div>
-  </div>
-</div>
+## Nuestros Servicios
 
-<!-- En tu README.md de GitHub, agrega esta línea al final -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+|🎨 Diseño|💻 Desarrollo|📱 Mobile|
+|---------|------------|---------|
+|Explora nuestros servicios de diseño creativos|Soluciones web modernas|Aplicaciones móviles nativas|
+|[Más información](https://ejemplo1.com)|[Más información](https://ejemplo2.com)|[Más información](https://ejemplo3.com)|
+
+
+
+<div align="center">
+  <table>
+    <tr>
+      <td align="center"><h3>🎨</h3></td>
+      <td align="center"><h3>💻</h3></td>
+      <td align="center"><h3>📱</h3></td>
+    </tr>
+    <tr>
+      <td align="center"><b>Diseño</b></td>
+      <td align="center"><b>Desarrollo</b></td>
+      <td align="center"><b>Mobile</b></td>
+    </tr>
+    <tr>
+      <td align="center">Servicios de diseño creativos</td>
+      <td align="center">Soluciones web modernas</td>
+      <td align="center">Apps multiplataforma</td>
+    </tr>
+  </table>
+</div>
 
 
 ## finalmente:
