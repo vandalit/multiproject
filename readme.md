@@ -268,6 +268,91 @@ El error `404, Requested entity was not found` sugiere que Firebase no encuentra
 
 Esto debería solucionar el error, ya que ahora Firebase puede encontrar cada uno de los sitios (`multiprojectfirebase-main`, `multiprojectfirebase-second`, `multiprojectfirebase-third`).
 
-<a href="https://multiprojectfirebase-main.web.app/">proyecto main</a> 
-<a href="https://multiprojectfirebase-second.web.app/">proyecto second</a>
-<a href="https://multiprojectfirebase-third.web.app/">proyecto third</a>
+
+<div class="container">
+    <a href="https://multiprojectfirebase-main.web.app/" class="card">
+        <div class="icon">🎨</div>
+        <h2>Diseño</h2>
+        <p>Explora nuestros servicios de diseño creativos y personalizados para tu marca.</p>
+    </a>
+    <a href="https://multiprojectfirebase-second.web.app/" class="card">
+        <div class="icon">💻</div>
+        <h2>Desarrollo</h2>
+        <p>Soluciones web modernas y optimizadas para tu negocio digital.</p>
+    </a>
+
+    <a href="https://multiprojectfirebase-third.web.app/" class="card">
+        <div class="icon">📱</div>
+        <h2>Mobile</h2>
+        <p>Aplicaciones móviles nativas y multiplataforma de alta calidad.</p>
+    </a>
+</div>
+
+<style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #1a1a1a;
+            font-family: system-ui, -apple-system, sans-serif;
+            padding: 2rem;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .card {
+            background-color: #2d2d2d;
+            border-radius: 1rem;
+            padding: 2rem;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .card:hover {
+            background-color: #ff7f50;
+            transform: translateY(-5px);
+        }
+
+        .card h2 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .card p {
+            margin: 0;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .card .icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 1rem;
+            }
+            
+            .container {
+                gap: 1rem;
+            }
+        }
+</style>
+
+
+finalmente:
