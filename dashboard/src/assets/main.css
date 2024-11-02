@@ -1,35 +1,24 @@
-@import './base.css';
-
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  font-weight: normal;
+body {
+  background-color: #121212;
+  color: #e0e0e0;
 }
-
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-  padding: 3px;
+.card {
+  background-color: #1e1e1e;
+  transition: transform 0.3s ease-in-out;
 }
-
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
+.card:hover {
+  transform: translateY(-5px);
 }
-
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
-
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
+.card-title {
+  color: #ffffff;
+}
+.btn-primary {
+  background-color: #bb86fc;
+  border-color: #bb86fc;
+  color: #000000;
+}
+.btn-primary:hover {
+  background-color: #3700b3;
+  border-color: #3700b3;
+  color: #ffffff;
 }
