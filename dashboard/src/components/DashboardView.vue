@@ -16,7 +16,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Proyecto 1</h5>
                         <p class="card-text">Una breve descripción del primer proyecto y sus características principales.</p>
-                        <a href="#" class="btn btn-primary"><i class="fas fa-info-circle me-2"></i>Más Información</a>
+                        <a href="https://multiprojectfirebase-main.web.app/" class="btn btn-primary"><i class="fas fa-info-circle me-2"></i>Más Información</a>
                     </div>
                 </div>
             </div>
@@ -26,7 +26,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Proyecto 2</h5>
                         <p class="card-text">Detalles sobre el segundo proyecto y lo que lo hace especial.</p>
-                        <a href="#" class="btn btn-primary"><i class="fas fa-code me-2"></i>Ver Código</a>
+                        <a href="https://multiprojectfirebase-second.web.app/" class="btn btn-primary"><i class="fas fa-code me-2"></i>Ver Código</a>
                     </div>
                 </div>
             </div>
@@ -36,7 +36,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Proyecto 3</h5>
                         <p class="card-text">Explicación del tercer proyecto y sus logros destacados.</p>
-                        <a href="#" class="btn btn-primary"><i class="fas fa-external-link-alt me-2"></i>Visitar Sitio</a>
+                        <a href="https://multiprojectfirebase-third.web.app/" class="btn btn-primary"><i class="fas fa-external-link-alt me-2"></i>Visitar Sitio</a>
                     </div>
                 </div>
             </div>

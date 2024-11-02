@@ -13,6 +13,9 @@
         ],
         "thirdProject": [
           "multiprojectfirebase-third"
+        ],
+        "dashboard": [
+          "multiprojectfirebase"
         ]
       }
     }

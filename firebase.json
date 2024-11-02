@@ -1,6 +1,14 @@
 {
   "hosting": [
     {
+      "target": "dashboard",
+      "public": "dashboard/dist",
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+      "rewrites": [
+        { "source": "**", "destination": "/index.html" }
+      ]
+    },
+    {
       "target": "mainProject",
       "public": "main-project/dist",
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
