@@ -1,4 +1,4 @@
-despliegue multiple de varios proyectos en un proyecto firebase.
+## Despliegue multiple de varios proyectos en un proyecto firebase.
 
 Para ayudarte a desplegar tus tres proyectos en Firebase en un solo proyecto "multiprojectfirebase", voy a proporcionarte una guía detallada de configuración y despliegue. A continuación, detallo los pasos necesarios, desde la configuración de Firebase hasta el uso de los targets de hosting.
 
@@ -178,64 +178,9 @@ Con estos pasos, deberías poder desplegar exitosamente cada proyecto en su prop
 
 
 
-##### You said:
 
-tengo esta configuracion en vite, como deberia quedar?: import { fileURLToPath, URL } from 'node:url' import { defineConfig } from 'vite' import vue from '@vitejs/plugin-vue' // https://vite.dev/config/ export default defineConfig({  plugins: [    vue(),  ],  resolve: {    alias: {      '@': fileURLToPath(new URL('./src', import.meta.url))    }  } })
+Error: Request to https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/multiprojectfirebase-main/versions had HTTP Error: 404, Requested entity was not found.
 
-
-
-###### ChatGPT said:
-
-ChatGPT
-
-Tu configuración de Vite es bastante estándar para un proyecto Vue y tiene algunos alias configurados. Para adaptarla a Firebase y asegurar que el `build` de cada proyecto se genere en un directorio específico (`dist`), solo necesitas agregar la opción `build.outDir` dentro de la configuración de `defineConfig`. Esto le indicará a Vite que coloque los archivos compilados en el directorio `dist` (que es donde Firebase espera encontrar los archivos para servirlos).
-
-Aquí te muestro cómo debería quedar tu configuración de `vite.config.js` para cada subproyecto:
-
-```
-import { fileURLToPath, URL } from 'node:url'
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-
-// https://vite.dev/config/
-export default defineConfig({
-  plugins: [
-    vue(),
-  ],
-  resolve: {
-    alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
-    }
-  },
-  build: {
-    outDir: 'dist' // Especifica la carpeta de salida para el build
-  }
-})
-```
-
-### Explicación de la Modificación
-
-- **`build.outDir`:** Esta opción asegura que Vite genere el build en la carpeta `dist` del subproyecto, que es lo que configuramos en el archivo `firebase.json` para que Firebase Hosting sirva los archivos correctamente.
-
-Con esta configuración, cuando ejecutes `npm run build` en cada subproyecto, Vite generará los archivos estáticos dentro de la carpeta `dist`, lista para el despliegue en Firebase. Asegúrate de repetir esta configuración en cada archivo `vite.config.js` de tus subproyectos (`main-project`, `second-project`, `third-project`).
-
-
-
-
-
-
-
-##### You said:
-
-tengo el siugiente error con cada deploy Error: Request to https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/multiprojectfirebase-main/versions had HTTP Error: 404, Requested entity was not found.
-
-
-
-###### ChatGPT said:
-
-ChatGPT
-
-El error `404, Requested entity was not found` sugiere que Firebase no encuentra uno o más de los sitios (`sites`) que estás intentando utilizar con los targets definidos. Esto generalmente ocurre cuando el nombre del sitio en Firebase no coincide con el que especificaste en los targets de hosting o si el sitio aún no ha sido creado en Firebase.
 
 ### Solución: Verificar y Crear los Sitios en Firebase Hosting
 
