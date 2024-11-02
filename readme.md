@@ -288,71 +288,172 @@ Esto debería solucionar el error, ya que ahora Firebase puede encontrar cada un
     </a>
 </div>
 
-<style>
-        body {
-            margin: 0;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #1a1a1a;
-            font-family: system-ui, -apple-system, sans-serif;
-            padding: 2rem;
-        }
+# Mi Proyecto
 
-        .container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            width: 100%;
-            max-width: 1200px;
-        }
+## Cards de Servicios
 
-        .card {
-            background-color: #2d2d2d;
-            border-radius: 1rem;
-            padding: 2rem;
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+<div class="container">
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col">
+      <a href="https://ejemplo1.com" class="text-decoration-none">
+        <div class="card h-100 bg-dark text-white rounded-4 shadow" onmouseover="this.style.backgroundColor='#ff7f50';" onmouseout="this.style.backgroundColor='#212529';">
+          <div class="card-body">
+            <div class="display-6 mb-3">🎨</div>
+            <h5 class="card-title">Diseño</h5>
+            <p class="card-text">Explora nuestros servicios de diseño creativos y personalizados para tu marca.</p>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="col">
+      <a href="https://ejemplo2.com" class="text-decoration-none">
+        <div class="card h-100 bg-dark text-white rounded-4 shadow" onmouseover="this.style.backgroundColor='#ff7f50';" onmouseout="this.style.backgroundColor='#212529';">
+          <div class="card-body">
+            <div class="display-6 mb-3">💻</div>
+            <h5 class="card-title">Desarrollo</h5>
+            <p class="card-text">Soluciones web modernas y optimizadas para tu negocio digital.</p>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="col">
+      <a href="https://ejemplo3.com" class="text-decoration-none">
+        <div class="card h-100 bg-dark text-white rounded-4 shadow" onmouseover="this.style.backgroundColor='#ff7f50';" onmouseout="this.style.backgroundColor='#212529';">
+          <div class="card-body">
+            <div class="display-6 mb-3">📱</div>
+            <h5 class="card-title">Mobile</h5>
+            <p class="card-text">Aplicaciones móviles nativas y multiplataforma de alta calidad.</p>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
 
-        .card:hover {
-            background-color: #ff7f50;
-            transform: translateY(-5px);
-        }
-
-        .card h2 {
-            margin: 0;
-            font-size: 1.5rem;
-        }
-
-        .card p {
-            margin: 0;
-            opacity: 0.9;
-            line-height: 1.6;
-        }
-
-        .card .icon {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        @media (max-width: 600px) {
-            body {
-                padding: 1rem;
-            }
-            
-            .container {
-                gap: 1rem;
-            }
-        }
-</style>
+<!-- En tu README.md de GitHub, agrega esta línea al final -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
 
-finalmente:
+## finalmente:
+
+
+Para agregar el directorio `dashboard-multiproject` y desplegarlo en la ruta principal `multiprojectfirebase.web.app` sin afectar tus configuraciones existentes, puedes seguir estos pasos:
+
+1. **Configurar Firebase Hosting para múltiples sitios y el sitio raíz:** Vamos a agregar el nuevo directorio `dashboard-multiproject` como la raíz principal de tu proyecto de Firebase Hosting, y mantener los otros proyectos (`main-project`, `second-project`, `third-project`) en sus subdominios.
+
+2. **Estructura del Proyecto:** Asegúrate de tener una estructura de carpetas similar a esta:
+
+   ```
+   MULTIPROJECT
+   ├── dashboard-multiproject
+   │   └── src
+   │   └── dist (generado en el build)
+   │   └── vite.config.js
+   ├── main-project
+   │   └── src
+   │   └── dist (generado en el build)
+   │   └── vite.config.js
+   ├── second-project
+   │   └── src
+   │   └── dist (generado en el build)
+   │   └── vite.config.js
+   ├── third-project
+   │   └── src
+   │   └── dist (generado en el build)
+   │   └── vite.config.js
+   └── firebase.json
+   ```
+
+3. **Configurar `vite.config.js` para `dashboard-multiproject`:** En el archivo `vite.config.js` de `dashboard-multiproject`, configura `outDir` para que los archivos generados se almacenen en la carpeta `dist`:
+
+   ```
+   import { fileURLToPath, URL } from 'node:url'
+   import { defineConfig } from 'vite'
+   import vue from '@vitejs/plugin-vue'
+   
+   export default defineConfig({
+     plugins: [vue()],
+     resolve: {
+       alias: {
+         '@': fileURLToPath(new URL('./src', import.meta.url))
+       }
+     },
+     build: {
+       outDir: 'dist'
+     }
+   })
+   ```
+
+4. **Modificar `firebase.json` para incluir `dashboard-multiproject` en la ruta principal:** Configura `firebase.json` para que Firebase despliegue `dashboard-multiproject` en la ruta raíz (`multiprojectfirebase.web.app`) y mantenga los otros subproyectos en sus subdominios. El archivo `firebase.json` debería verse así:
+
+   ```
+   {
+     "hosting": [
+       {
+         "target": "dashboard",
+         "public": "dashboard-multiproject/dist",
+         "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+         "rewrites": [
+           { "source": "**", "destination": "/index.html" }
+         ]
+       },
+       {
+         "target": "mainProject",
+         "public": "main-project/dist",
+         "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+         "rewrites": [
+           { "source": "**", "destination": "/index.html" }
+         ]
+       },
+       {
+         "target": "secondProject",
+         "public": "second-project/dist",
+         "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+         "rewrites": [
+           { "source": "**", "destination": "/index.html" }
+         ]
+       },
+       {
+         "target": "thirdProject",
+         "public": "third-project/dist",
+         "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+         "rewrites": [
+           { "source": "**", "destination": "/index.html" }
+         ]
+       }
+     ]
+   }
+   ```
+
+5. **Aplicar el Target de Hosting para `dashboard-multiproject`:** Define un nuevo target para `dashboard-multiproject` y aplícalo como el sitio raíz.
+
+   ```
+   firebase target:apply hosting dashboard multiprojectfirebase
+   firebase target:apply hosting mainProject multiprojectfirebase-main
+   firebase target:apply hosting secondProject multiprojectfirebase-second
+   firebase target:apply hosting thirdProject multiprojectfirebase-third
+   ```
+
+   - Aquí, `multiprojectfirebase` es el nombre principal de tu proyecto, y `dashboard` es el target para el nuevo directorio.
+
+6. **Desplegar a Firebase:** Ejecuta el comando de despliegue para publicar todas las configuraciones de hosting.
+
+   ```
+   firebase deploy --only hosting
+   ```
+
+### Explicación de la Configuración
+
+- **`target: "dashboard"`:** Define `dashboard` como el target que apunta al sitio raíz `multiprojectfirebase.web.app`, mientras los demás targets (`mainProject`, `secondProject`, `thirdProject`) apuntan a sus subdominios.
+- **`public: "dashboard-multiproject/dist"`:** Configura `dashboard-multiproject` para que se sirva en la ruta raíz.
+- **`rewrites` en cada sección:** Asegura que todas las rutas dentro de cada proyecto redirijan a `index.html`, lo cual es importante para aplicaciones Vue de una sola página.
+
+### Consideraciones Finales
+
+- Esta configuración permitirá que `dashboard-multiproject` esté disponible en `multiprojectfirebase.web.app`, mientras que los demás proyectos seguirán en sus respectivos subdominios.
+- Asegúrate de ejecutar `npm run build` en cada subproyecto antes de desplegar para que los archivos `dist` estén actualizados.
+- Si haces cambios en cualquiera de los proyectos, tendrás que volver a hacer `build` y `deploy`.
+
+Siguiendo estos pasos deberías poder desplegar los cuatro proyectos, manteniendo `dashboard-multiproject` en la ruta principal y los otros en sus subdominios.
+
+
