@@ -269,37 +269,6 @@ El error `404, Requested entity was not found` sugiere que Firebase no encuentra
 Esto debería solucionar el error, ya que ahora Firebase puede encontrar cada uno de los sitios (`multiprojectfirebase-main`, `multiprojectfirebase-second`, `multiprojectfirebase-third`).
 
 
-<div class="container">
-    <a href="https://multiprojectfirebase-main.web.app/" class="card">
-        <div class="icon">🎨</div>
-        <h2>Diseño</h2>
-        <p>Explora nuestros servicios de diseño creativos y personalizados para tu marca.</p>
-    </a>
-    <a href="https://multiprojectfirebase-second.web.app/" class="card">
-        <div class="icon">💻</div>
-        <h2>Desarrollo</h2>
-        <p>Soluciones web modernas y optimizadas para tu negocio digital.</p>
-    </a>
-
-    <a href="https://multiprojectfirebase-third.web.app/" class="card">
-        <div class="icon">📱</div>
-        <h2>Mobile</h2>
-        <p>Aplicaciones móviles nativas y multiplataforma de alta calidad.</p>
-    </a>
-</div>
-
-# Mi Proyecto
-
-## Cards de Servicios
-
-## Nuestros Servicios
-
-|🎨 Diseño|💻 Desarrollo|📱 Mobile|
-|---------|------------|---------|
-|Explora nuestros servicios de diseño creativos|Soluciones web modernas|Aplicaciones móviles nativas|
-|[Más información](https://ejemplo1.com)|[Más información](https://ejemplo2.com)|[Más información](https://ejemplo3.com)|
-
-
 
 <div align="center">
   <table>
@@ -314,9 +283,9 @@ Esto debería solucionar el error, ya que ahora Firebase puede encontrar cada un
       <td align="center"><b>Mobile</b></td>
     </tr>
     <tr>
-      <td align="center">Servicios de diseño creativos</td>
-      <td align="center">Soluciones web modernas</td>
-      <td align="center">Apps multiplataforma</td>
+      <td align="center"><a href="https://multiprojectfirebase-main.web.app/">Servicios de diseño creativos</a></td>
+      <td align="center"><a href="https://multiprojectfirebase-second.web.app/">Soluciones web modernas</a></td>
+      <td align="center"><a href="https://multiprojectfirebase-third.web.app/">Apps multiplataforma</a></td>
     </tr>
   </table>
 </div>
@@ -445,3 +414,17 @@ Para agregar el directorio `dashboard-multiproject` y desplegarlo en la ruta pri
 Siguiendo estos pasos deberías poder desplegar los cuatro proyectos, manteniendo `dashboard-multiproject` en la ruta principal y los otros en sus subdominios.
 
 
+
+<div align="center">
+  <table>
+    <tr>
+      <td align="center"><h3>💻</h3></td>
+    </tr>
+    <tr>
+      <td align="center"><b>Web</b></td>
+    </tr>
+    <tr>
+      <td align="center"><a href="https://multiprojectfirebase.web.app/">Dashboard</a></td>
+    </tr>
+  </table>
+</div>
