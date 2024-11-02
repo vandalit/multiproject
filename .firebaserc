@@ -1,5 +1,21 @@
 {
   "projects": {
     "default": "multiprojectfirebase"
-  }
+  },
+  "targets": {
+    "multiprojectfirebase": {
+      "hosting": {
+        "mainProject": [
+          "multiprojectfirebase-main"
+        ],
+        "secondProject": [
+          "multiprojectfirebase-second"
+        ],
+        "thirdProject": [
+          "multiprojectfirebase-third"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }
